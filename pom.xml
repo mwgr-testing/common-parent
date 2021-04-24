@@ -7,6 +7,7 @@
 	<groupId>net.mwgr.testing.github.parent</groupId>
 	<artifactId>common-parent</artifactId>
 	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<name>MWGR Testing (GitHub) - Common Parent</name>
 	<description>A common parent POM for all my projects in the testing area. It mainly provides plugin management and some useful profiles.</description>
