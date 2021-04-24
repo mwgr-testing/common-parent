@@ -4,22 +4,44 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<!-- <parent>...</parent> -->
+	<groupId>net.mwgr.testing.github.parent</groupId>
+	<artifactId>common-parent</artifactId>
+	<version>1.0-SNAPSHOT</version>
 
-	<groupId>%%PROJECT_GROUP_ID%%</groupId>
-	<artifactId>%%PROJECT_ARTIFACT_ID%%</artifactId>
-	<version>%%PROJECT_VERSION%%</version>
-	<!-- <packaging>...</packaging> -->
-
-	<name>%%PROJECT_NAME%%</name>
-	<description>%%PROJECT_DESCRIPTION%%</description>
-	<inceptionYear>%%YEAR%%</inceptionYear>
-	<url>https://github.com/%%GITHUB_REPO_OWNER%%/%%GITHUB_REPO_NAME%%</url>
+	<name>MWGR Testing (GitHub) - Common Parent</name>
+	<description>A common parent POM for all my projects in the testing area. It mainly provides plugin management and some useful profiles.</description>
+	<inceptionYear>2021</inceptionYear>
+	<url>https://github.com/mwgr-testing/common-parent</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<java.version>11</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
+		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+		<maven-war-plugin.version>3.3.1</maven-war-plugin.version>
+		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+		<maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
+		<maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+		<maven-site-plugin.version>3.9.1</maven-site-plugin.version>
+		<maven-project-info-reports-plugin.version>3.1.1</maven-project-info-reports-plugin.version>
+		<maven-scm-publish-plugin.version>3.1.0</maven-scm-publish-plugin.version>
+		<maven-scm-plugin.version>1.11.2</maven-scm-plugin.version>
+		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+		<maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+		<maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
+		<maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+		<buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
+		<build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version>
+		<versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
 	</properties>
 
 	<licenses>
@@ -29,24 +51,27 @@
 		</license>
 	</licenses>
 
-	<!-- <organization>...</organization> -->
-	<!-- <developers>...</developers> -->
-	<!-- <contributors>...</contributors> -->
-	<!-- <mailingLists>...</mailingLists> -->
+	<developers>
+		<developer>
+			<id>MWGR</id>
+			<name>Mirko Wagner</name>
+			<email>seelenvirtuose@gmail.com</email>
+		</developer>
+	</developers>
 
 	<scm>
-		<url>https://github.com/%%GITHUB_REPO_OWNER%%/%%GITHUB_REPO_NAME%%</url>
-		<connection>scm:git:https://github.com/%%GITHUB_REPO_OWNER%%/%%GITHUB_REPO_NAME%%.git</connection>
-		<developerConnection>scm:git:https://github.com/%%GITHUB_REPO_OWNER%%/%%GITHUB_REPO_NAME%%.git</developerConnection>
+		<url>https://github.com/mwgr-testing/common-parent</url>
+		<connection>scm:git:https://github.com/mwgr-testing/common-parent.git</connection>
+		<developerConnection>scm:git:https://github.com/mwgr-testing/common-parent.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/%%GITHUB_REPO_OWNER%%/%%GITHUB_REPO_NAME%%/issues</url>
+		<url>https://github.com/mwgr-testing/common-parent/issues</url>
 	</issueManagement>
 	<ciManagement>
 		<system>GitHub Actions</system>
-		<url>https://github.com/%%GITHUB_REPO_OWNER%%/%%GITHUB_REPO_NAME%%/actions</url>
+		<url>https://github.com/mwgr-testing/common-parent/actions</url>
 	</ciManagement>
 	<distributionManagement>
 		<snapshotRepository>
@@ -59,32 +84,313 @@
 		</repository>
 		<site>
 			<id>github</id>
-			<url>scm:git:https://github.com/%%GITHUB_REPO_OWNER%%/%%GITHUB_REPO_NAME%%.git</url>
+			<url>scm:git:https://github.com/mwgr-testing/common-parent.git</url>
 		</site>
 	</distributionManagement>
-
-	<!-- <repositories>...</repositories> -->
-	<!-- <pluginRepositories>...</pluginRepositories> -->
-
-	<!-- <modules>...</modules> -->
-
-	<!-- <dependencyManagement>...</dependencyManagement> -->
-	<!-- <dependencies>...</dependencies> -->
 
 	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${maven-clean-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar-plugin.version}</version>
+					<configuration>
+						<excludes>
+							<exclude>**/.git*</exclude>
+						</excludes>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Build-Number>${buildNumber}</Build-Number>
+								<Build-Timestamp>${timestamp}</Build-Timestamp>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${maven-war-plugin.version}</version>
+					<configuration>
+						<excludes>
+							<exclude>**/.git*</exclude>
+						</excludes>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Build-Number>${buildNumber}</Build-Number>
+								<Build-Timestamp>${timestamp}</Build-Timestamp>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${maven-assembly-plugin.version}</version>
+					<configuration>
+						<excludes>
+							<exclude>**/.git*</exclude>
+						</excludes>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Build-Number>${buildNumber}</Build-Number>
+								<Build-Timestamp>${timestamp}</Build-Timestamp>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${maven-failsafe-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>${maven-install-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>${maven-deploy-plugin.version}</version>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>${maven-site-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>${maven-project-info-reports-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-publish-plugin</artifactId>
+					<version>${maven-scm-publish-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-plugin</artifactId>
+					<version>${maven-scm-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
+					<configuration>
+						<excludes>
+							<exclude>**/.git*</exclude>
+						</excludes>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven-javadoc-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>${maven-release-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>${maven-enforcer-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>buildnumber-maven-plugin</artifactId>
+					<version>${buildnumber-maven-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${build-helper-maven-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>${versions-maven-plugin.version}</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>create-build-information</id>
+						<goals>
+							<goal>create</goal>
+						</goals>
+						<configuration>
+							<timestampFormat>{0,date,yyyy-MM-dd'T'HH:mm:ssZ}</timestampFormat>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 
-	<!-- <reporting>...</reporting> -->
-
-	<!-- <profiles>...</profiles> -->
+	<profiles>
+		<profile>
+			<id>it-dirs</id>
+			<activation>
+				<file>
+					<exists>src/it</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>add-it-source-dir</id>
+								<goals>
+									<goal>add-test-source</goal>
+								</goals>
+								<configuration>
+									<sources>
+										<source>src/it/java</source>
+									</sources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>add-it-resource-dir</id>
+								<goals>
+									<goal>add-test-resource</goal>
+								</goals>
+								<configuration>
+									<resources>
+										<resource>
+											<directory>src/it/resources</directory>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>run-integration-tests</id>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>release-validation</id>
+			<activation>
+				<property>
+					<name>releasing</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-enforcer-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>enforce-release-requirements</id>
+								<goals>
+									<goal>enforce</goal>
+								</goals>
+								<configuration>
+									<rules>
+										<requireReleaseDeps />
+										<dependencyConvergence />
+										<requireUpperBoundDeps />
+										<requirePluginVersions />
+										<reactorModuleConvergence />
+									</rules>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>source-and-javadoc</id>
+			<activation>
+				<property>
+					<name>releasing</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-sources-jar</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-javadoc-jar</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
