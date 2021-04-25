@@ -5,7 +5,7 @@
 
 	<groupId>net.mwgr.testing.github.parent</groupId>
 	<artifactId>common-parent</artifactId>
-	<version>1.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>MWGR Testing (GitHub) - Common Parent</name>
@@ -63,7 +63,7 @@
 		<url>https://github.com/mwgr-testing/common-parent</url>
 		<connection>scm:git:https://github.com/mwgr-testing/common-parent.git</connection>
 		<developerConnection>scm:git:https://github.com/mwgr-testing/common-parent.git</developerConnection>
-		<tag>1.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 	<issueManagement>
 		<system>GitHub Issues</system>
