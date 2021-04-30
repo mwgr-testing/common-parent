@@ -1,9 +1,9 @@
-name: Prepare release
+name: Release preparation
 on: workflow_dispatch
 env:
    GITHUB_TOKEN: ${{github.token}}
    MAVEN_OPTS: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-   MAVEN_CLI_ARGS: --batch-mode --update-snapshots
+   MAVEN_DEFAULT_ARGS: --batch-mode --update-snapshots
    RELEASE_BRANCH_NAME: release/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}
    NEXT_DEVELOPMENT_VERSION: ${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}-SNAPSHOT
    GIT_USER_NAME: GitHub Actions (${{github.actor}})

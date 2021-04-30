@@ -1,4 +1,4 @@
-name: Build and verify
+name: Package verification
 on:
    push:
       branches-ignore:
@@ -8,9 +8,10 @@ on:
 env:
    GITHUB_TOKEN: ${{github.token}}
    MAVEN_OPTS: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-   MAVEN_CLI_ARGS: --batch-mode --update-snapshots
+   MAVEN_DEFAULT_ARGS: --batch-mode --update-snapshots
+   MAVEN_ADDITIONAL_ARGS_FOR_BUILDING_PACKAGE: -Dbuilding
 jobs:
-   maven-verify:
+   verify-package:
       if: github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, 'skip ci')
       runs-on: ubuntu-latest
       steps:

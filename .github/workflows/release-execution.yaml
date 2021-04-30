@@ -1,4 +1,4 @@
-name: Perform release
+name: Release execution
 on:
    workflow_dispatch:
       inputs:
@@ -12,8 +12,9 @@ on:
 env:
    GITHUB_TOKEN: ${{github.token}}
    MAVEN_OPTS: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-   MAVEN_CLI_ARGS: --batch-mode --update-snapshots
-   MAVEN_RELEASE_ARGS: -Dreleasing
+   MAVEN_DEFAULT_ARGS: --batch-mode --update-snapshots
+   MAVEN_ADDITIONAL_ARGS_FOR_RELEASING_PACKAGE: -Dreleasing
+   MAVEN_ADDITIONAL_ARGS_FOR_DEPLOYING_SITE: -DdeployingSite
    TAG_NAME_FORMAT: '@{project.version}' # Note: If changing this format, you also have to adjust the checkout ref of the 'deploy-site' job.
    NEXT_DEVELOPMENT_VERSION: ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}-SNAPSHOT
    OVERRIDE_MAVEN_DISTRIBUTION_TYPE: ${{github.event.inputs.overrideMavenDistributionType}}
