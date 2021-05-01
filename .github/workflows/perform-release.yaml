@@ -1,4 +1,4 @@
-name: Release execution
+name: Perform release
 on:
    workflow_dispatch:
       inputs:
@@ -27,7 +27,7 @@ env:
    GIT_USER_EMAIL: ${{github.actor}}.actions@users.noreply.github.com
    GIT_COMMIT_MESSAGE_PREFIX: '[skip ci] '
 jobs:
-   create-release:
+   maven-create-release:
       if: startsWith(github.ref, 'refs/heads/release/')
       runs-on: ubuntu-latest
       outputs:
@@ -48,7 +48,7 @@ jobs:
             key: ${{runner.os}}-maven-${{hashFiles('**/pom.xml')}}
             restore-keys: ${{runner.os}}-maven-
       -  run: .github/workflows/scripts/configure-git-user.sh
-      -  run: .github/workflows/scripts/create-release.sh
+      -  run: .github/workflows/scripts/maven-create-release.sh
       -  name: Save release version
          id: save-release-version
          run: .github/workflows/scripts/save-project-version.sh

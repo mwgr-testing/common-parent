@@ -1,4 +1,4 @@
-name: Package verification
+name: Build and verify
 on:
    push:
       branches-ignore:
@@ -11,7 +11,7 @@ env:
    MAVEN_DEFAULT_ARGS: --batch-mode --update-snapshots
    MAVEN_ADDITIONAL_ARGS_FOR_BUILDING_PACKAGE: -Dbuilding
 jobs:
-   verify-package:
+   maven-verify-package:
       if: github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, 'skip ci')
       runs-on: ubuntu-latest
       steps:
@@ -24,4 +24,4 @@ jobs:
             path: ~/.m2/repository
             key: ${{runner.os}}-maven-${{hashFiles('**/pom.xml')}}
             restore-keys: ${{runner.os}}-maven-
-      -  run: .github/workflows/scripts/verify-package.sh
+      -  run: .github/workflows/scripts/maven-verify-package.sh

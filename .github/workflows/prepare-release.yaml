@@ -1,11 +1,11 @@
-name: Release preparation
+name: Prepare release
 on: workflow_dispatch
 env:
    GITHUB_TOKEN: ${{github.token}}
    MAVEN_OPTS: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
    MAVEN_DEFAULT_ARGS: --batch-mode --update-snapshots
    RELEASE_BRANCH_NAME: release/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}
-   NEXT_DEVELOPMENT_VERSION: ${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}-SNAPSHOT
+   NEW_PROJECT_VERSION: ${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}-SNAPSHOT
    GIT_USER_NAME: GitHub Actions (${{github.actor}})
    GIT_USER_EMAIL: ${{github.actor}}.actions@users.noreply.github.com
    GIT_COMMIT_MESSAGE: Starting next development iteration.
@@ -41,4 +41,4 @@ jobs:
             key: ${{runner.os}}-maven-${{hashFiles('**/pom.xml')}}
             restore-keys: ${{runner.os}}-maven-
       -  run: .github/workflows/scripts/configure-git-user.sh
-      -  run: .github/workflows/scripts/increment-development-version.sh
+      -  run: .github/workflows/scripts/set-new-project-version.sh
