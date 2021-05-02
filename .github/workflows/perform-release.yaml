@@ -55,7 +55,7 @@ jobs:
             OUTPUT_VARIABLE_NAME: releaseVersion
             PROJECT_DIRECTORY: target/checkout
    deploy-maven-site:
-      needs: create-release
+      needs: perform-maven-release
       if: github.event.inputs.doSiteDeployment == 'true'
       runs-on: ubuntu-latest
       steps:
