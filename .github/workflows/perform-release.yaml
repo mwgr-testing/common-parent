@@ -54,7 +54,7 @@ jobs:
          env:
             OUTPUT_VARIABLE_NAME: releaseVersion
             PROJECT_DIRECTORY: target/checkout
-   deploy-maven-site:
+   generate-and-deploy-maven-site:
       needs: perform-maven-release
       if: github.event.inputs.doSiteDeployment == 'true'
       runs-on: ubuntu-latest
@@ -70,6 +70,6 @@ jobs:
             path: ~/.m2/repository
             key: ${{runner.os}}-maven-${{hashFiles('**/pom.xml')}}
       -  run: .github/workflows/scripts/configure-git-user.sh
-      -  run: .github/workflows/scripts/deploy-maven-site.sh
+      -  run: .github/workflows/scripts/generate-and-deploy-maven-site.sh
          env:
             MAVEN_ADDITIONAL_ARGS: -DdeployingSite
