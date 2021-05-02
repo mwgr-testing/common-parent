@@ -413,7 +413,7 @@
 								<phase>site-deploy</phase>
 								<configuration>
 									<oauth2Token>${env.GH_WORKFLOW_TOKEN}</oauth2Token>
-									<message>Deploying site for ${project.version}.</message>
+									<message>Deploying site for version ${project.version}.</message>
 								</configuration>
 							</execution>
 						</executions>
