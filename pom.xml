@@ -6,7 +6,7 @@
 
 	<groupId>net.mwgr.testing.github.parent</groupId>
 	<artifactId>common-parent</artifactId>
-	<version>1.5-SNAPSHOT</version>
+	<version>1.6-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>MWGR Testing (GitHub) - Common Parent</name>
