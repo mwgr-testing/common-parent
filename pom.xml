@@ -83,10 +83,6 @@
 			<id>maven-distribution</id>
 			<url>${env.MAVEN_DISTRIBUTION_RELEASES_URL}</url>
 		</repository>
-		<site>
-			<id>github</id>
-			<url>scm:git:https://github.com/mwgr-testing/common-parent.git</url>
-		</site>
 	</distributionManagement>
 
 	<build>
@@ -262,18 +258,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>site-deploy</phase>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 
@@ -398,6 +382,39 @@
 								<goals>
 									<goal>jar</goal>
 								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>site-deployment</id>
+			<activation>
+				<property>
+					<name>siteDeploying</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<properties>
+				<maven.site.deploy.skip>true</maven.site.deploy.skip>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.github</groupId>
+						<artifactId>site-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>deploy-site</id>
+								<goals>
+									<goal>site</goal>
+								</goals>
+								<phase>site-deploy</phase>
+								<configuration>
+									<server>github</server>
+									<message>Deploying site for ${project.version}.</message>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
