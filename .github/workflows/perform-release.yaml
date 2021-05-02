@@ -61,6 +61,7 @@ jobs:
       steps:
       -  uses: actions/checkout@v2
          with:
+            token: ${{secrets.GH_WORKFLOW_TOKEN}}
             ref: ${{needs.perform-maven-release.outputs.releaseVersion}}
       -  uses: actions/setup-java@v1
          with:
