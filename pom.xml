@@ -28,7 +28,7 @@
 		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
 		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
 		<maven-war-plugin.version>3.3.1</maven-war-plugin.version>
-		<!-- <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version> -->
+		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
 		<maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
 		<maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
@@ -146,25 +146,22 @@
 						</archive>
 					</configuration>
 				</plugin>
-				<!-- <plugin> -->
-				<!-- <groupId>org.apache.maven.plugins</groupId> -->
-				<!-- <artifactId>maven-assembly-plugin</artifactId> -->
-				<!-- <version>${maven-assembly-plugin.version}</version> -->
-				<!-- <configuration> -->
-				<!-- <excludes> -->
-				<!-- <exclude>**/.git*</exclude> -->
-				<!-- </excludes> -->
-				<!-- <archive> -->
-				<!-- <manifest> -->
-				<!-- <addDefaultImplementationEntries>true</addDefaultImplementationEntries> -->
-				<!-- </manifest> -->
-				<!-- <manifestEntries> -->
-				<!-- <Build-Number>${buildNumber}</Build-Number> -->
-				<!-- <Build-Timestamp>${timestamp}</Build-Timestamp> -->
-				<!-- </manifestEntries> -->
-				<!-- </archive> -->
-				<!-- </configuration> -->
-				<!-- </plugin> -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${maven-assembly-plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Build-Number>${buildNumber}</Build-Number>
+								<Build-Timestamp>${timestamp}</Build-Timestamp>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
