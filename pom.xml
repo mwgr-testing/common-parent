@@ -337,7 +337,8 @@
 					</plugin>
 				</plugins>
 			</build>
-		</profile><profile>
+		</profile>
+		<profile>
 			<id>release-validation</id>
 			<activation>
 				<property>
@@ -371,7 +372,6 @@
 				</plugins>
 			</build>
 		</profile>
-		
 		<profile>
 			<id>site-deployment</id>
 			<activation>
