@@ -12,7 +12,7 @@
 	<name>MWGR Testing (GitHub) - Common Parent</name>
 	<description>A common parent POM for all my projects in the testing area. It mainly provides plugin management and some useful profiles.</description>
 	<inceptionYear>2021</inceptionYear>
-	<url>https://github.com/mwgr-testing/common-parent</url>
+	<url>https://github.com/mwgr-testing/gh-common-parent</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,18 +61,18 @@
 	</developers>
 
 	<scm>
-		<url>https://github.com/mwgr-testing/common-parent</url>
-		<connection>scm:git:https://github.com/mwgr-testing/common-parent.git</connection>
-		<developerConnection>scm:git:https://github.com/mwgr-testing/common-parent.git</developerConnection>
+		<url>https://github.com/mwgr-testing/gh-common-parent</url>
+		<connection>scm:git:https://github.com/mwgr-testing/gh-common-parent.git</connection>
+		<developerConnection>scm:git:https://github.com/mwgr-testing/gh-common-parent.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/mwgr-testing/common-parent/issues</url>
+		<url>https://github.com/mwgr-testing/gh-common-parent/issues</url>
 	</issueManagement>
 	<ciManagement>
 		<system>GitHub Actions</system>
-		<url>https://github.com/mwgr-testing/common-parent/actions</url>
+		<url>https://github.com/mwgr-testing/gh-common-parent/actions</url>
 	</ciManagement>
 	<distributionManagement>
 		<snapshotRepository>
